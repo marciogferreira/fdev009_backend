@@ -49,6 +49,8 @@ const app = createServer((request, response) => {
         })
     }
 
+    // CRUD DE CATEGORIAS
+    
 
     response.writeHead(200, { 'content-type': 'text/plain' })
     response.end('Hello NodeJs FS 009')
