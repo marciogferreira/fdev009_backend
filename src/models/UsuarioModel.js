@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize')
-const Conexao = require('../config/conexao.js')
+import { DataTypes } from 'sequelize'
+import Conexao from '../config/conexao.js'
 
 const UsuarioModel = Conexao.define(
     "UsuarioModel",
@@ -31,15 +31,4 @@ const UsuarioModel = Conexao.define(
     }
 )
 
-module.exports = UsuarioModel;
-
-const dados = {
-    nome: "test",
-    login: 'test',
-    senha: 'tesxt',
-    permissao: "1"
-}
-// const dadosNoBanco = UsuarioModel.create(dados);
-// UsuarioModel.update(dados, { id: 1 })
-// UsuarioModel.findAll({ attributes: ['nome'] })
-// UsuarioModel.delete({ id: 1 })
+export default UsuarioModel;

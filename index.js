@@ -1,5 +1,5 @@
-const { createServer } = require('node:http');
-const UsuarioModel = require('./src/models/UsuarioModel');
+import { createServer } from 'node:http';
+import UsuarioModel from './src/models/UsuarioModel.js'
 
 
 const app = createServer((request, response) => {
