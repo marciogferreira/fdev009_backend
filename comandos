@@ -1,0 +1,10 @@
+git clone https://github.com/marciogferreira/fdev009_backend
+
+cd fdev009_backend
+npm install
+npm start
+
+
+
+Acesse:
+http://localhost:3000

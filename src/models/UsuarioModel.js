@@ -32,3 +32,11 @@ const UsuarioModel = Conexao.define(
 )
 
 export default UsuarioModel;
+
+// const usuarios = UsuarioModel.findAll();
+// UsuarioModel.create({
+//     nome: '',
+//     login: ''
+// })
+// UsuarioModel.update(dadoss, {})
+// UsuarioModel.destroy({ where: { id: 1 } })
