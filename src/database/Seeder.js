@@ -11,6 +11,10 @@ async function generateSeeder() {
         senha: '123123',
         permissao: '1'
     })
+
+    await CategoriaModel.create({
+        nome: 'Categoria Teste'
+    })
 }
 
 generateSeeder();
