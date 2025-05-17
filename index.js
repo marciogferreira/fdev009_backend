@@ -1,14 +1,14 @@
 import express from 'express'
-import UsuarioModel from './src/models/UsuarioModel.js';
+import UsuarioRoutes from './src/routes/UsuarioRoutes.js';
 const app = express();
+
+app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
+
 app.get('/', (request, response) => {
     response.send("Hello Express FDEV009 111c")
 })
 
-app.get('/usuarios', async (request, response) => {
-    const usuarios = await UsuarioModel.findAll();
-    response.json(usuarios)
-})
+app.use(UsuarioRoutes);
 
 app.listen(3000, () => {
     console.log("Servidor executando...")

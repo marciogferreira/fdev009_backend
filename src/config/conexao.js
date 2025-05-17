@@ -9,4 +9,14 @@ const Conexao = new Sequelize({
     database: 'fdev009'
 })
 
+
+// const Conexao = new Sequelize({
+//     dialect: 'postgres',
+//     host: 'localhost',
+//     port: 5432,
+//     username: 'postgres',
+//     password: '123456',
+//     database: 'fdev009'
+// })
+
 export default Conexao;
