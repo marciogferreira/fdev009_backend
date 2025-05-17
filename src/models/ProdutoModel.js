@@ -41,7 +41,7 @@ const ProdutoModel = Conexao.define(
         categoria_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: CategoriaModel,
+                model: CategoriaModel
             }
         },
         fornedor_id: {
@@ -55,6 +55,9 @@ const ProdutoModel = Conexao.define(
         tableName: 'produtos'
     }
 )
-
-
+CategoriaModel.hasMany(ProdutoModel);
+ProdutoModel.belongsTo(CategoriaModel, {
+  foreignKey: 'categoria_id',
+  as: 'categoria' // <-- esse "as" precisa ser igual ao usado no include
+});
 export default ProdutoModel;

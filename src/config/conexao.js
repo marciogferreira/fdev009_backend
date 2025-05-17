@@ -1,22 +1,22 @@
 import { Sequelize } from 'sequelize';
 
-const Conexao = new Sequelize({
-    dialect: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: '123456',
-    database: 'fdev009'
-})
-
-
 // const Conexao = new Sequelize({
-//     dialect: 'postgres',
+//     dialect: 'mysql',
 //     host: 'localhost',
-//     port: 5432,
-//     username: 'postgres',
+//     port: 3306,
+//     username: 'root',
 //     password: '123456',
 //     database: 'fdev009'
 // })
+
+
+const Conexao = new Sequelize({
+    dialect: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'postgres',
+    password: '123456',
+    database: 'fdev009'
+})
 
 export default Conexao;
