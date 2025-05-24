@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import Conexao from '../config/conexao.js';
-import ProdutoModel from './ProdutoModel.js';
 const CategoriaModel = Conexao.define(
     // nome do model
     "CategoriaModel",

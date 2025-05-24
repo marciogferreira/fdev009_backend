@@ -2,6 +2,9 @@ import express from 'express'
 import UsuarioRoutes from './src/routes/UsuarioRoutes.js';
 import ProdutoModel from './src/models/ProdutoModel.js';
 import CategoriaModel from './src/models/CategoriaModel.js';
+import ClienteRoutes from './src/routes/ClienteRoutes.js';
+import PedidoRoutes from './src/routes/PedidoRoutes.js';
+import ItensPedidoRoutes from './src/routes/ItensPedidoRoutes.js';
 const app = express();
 
 app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
@@ -11,6 +14,12 @@ app.get('/', (request, response) => {
 })
 
 app.use(UsuarioRoutes);
+
+app.use(ClienteRoutes);
+
+app.use(PedidoRoutes);
+
+app.use(ItensPedidoRoutes);
 
 app.get('/produtos', async (request, response) => {
     const produtos = await ProdutoModel.findAll({
