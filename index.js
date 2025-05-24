@@ -5,6 +5,10 @@ import CategoriaModel from './src/models/CategoriaModel.js';
 import ClienteRoutes from './src/routes/ClienteRoutes.js';
 import PedidoRoutes from './src/routes/PedidoRoutes.js';
 import ItensPedidoRoutes from './src/routes/ItensPedidoRoutes.js';
+import FornecedorRoutes from './src/routes/FornecedorRoutes.js';
+import ProdutoRoutes from './src/routes/ProdutoRoutes.js';
+import CategoriaRoutes from './src/routes/CategoriaRoutes.js';
+
 const app = express();
 
 app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
@@ -12,6 +16,11 @@ app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
 app.get('/', (request, response) => {
     response.send("Hello Express FDEV009 111c")
 })
+
+app.use(CategoriaRoutes);
+app.use(ProdutoRoutes);
+app.use(FornecedorRoutes);
+
 
 app.use(UsuarioRoutes);
 
