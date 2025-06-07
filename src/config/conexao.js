@@ -1,22 +1,13 @@
 import { Sequelize } from 'sequelize';
+import 'dotenv/config'
 
 const Conexao = new Sequelize({
-    dialect: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'PE07Fdro@',
-    database: 'fdev009'
+    dialect: process.env.DRIVER || 'mysql',
+    host: process.env.HOST,
+    port: process.env.PORT,
+    username: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 })
-
-
-// const Conexao = new Sequelize({
-//     dialect: 'postgres',
-//     host: 'localhost',
-//     port: 5432,
-//     username: 'postgres',
-//     password: 'PE07Fdro',
-//     database: 'fdev009'
-// })
 
 export default Conexao;
