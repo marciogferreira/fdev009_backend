@@ -20,14 +20,9 @@ app.get('/', (request, response) => {
 app.use(CategoriaRoutes);
 app.use(ProdutoRoutes);
 app.use(FornecedorRoutes);
-
-
 app.use(UsuarioRoutes);
-
 app.use(ClienteRoutes);
-
 app.use(PedidoRoutes);
-
 app.use(ItensPedidoRoutes);
 
 app.get('/produtos', async (request, response) => {
