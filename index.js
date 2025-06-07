@@ -11,13 +11,19 @@ import CategoriaRoutes from './src/routes/CategoriaRoutes.js';
 import criarTabelas from './src/database/Migrations.js';
 import AutorizacaoRoutes from './src/routes/AutorizacaoRoutes.js';
 import jwt from 'jsonwebtoken';
+import cors from 'cors'
 import dotenv from 'dotenv';
+import PublicRoutes from './src/routes/PublicRoutes.js';
 dotenv.config();
 
 // Migration para Criação de Tabelas no Banco
 // criarTabelas();
 
 const app = express();
+app.use(cors({
+    origin: '*',
+    methods: '*'
+}))
 
 app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
 
@@ -26,7 +32,7 @@ app.get('/', (request, response) => {
 })
 
 app.use(AutorizacaoRoutes)
-
+app.use(PublicRoutes)
 // MIDDLEWARE - INTERMEDIARIO
 app.use(async (req, res, next) => {
     const token = req.headers.token;
@@ -39,7 +45,6 @@ app.use(async (req, res, next) => {
         })
     }
 })
-
 
 app.use(CategoriaRoutes);
 app.use(ProdutoRoutes);
@@ -61,6 +66,15 @@ app.get('/produtos', async (request, response) => {
         
     });
     response.json(produtos);
+})
+
+app.use((error, request, response, next) => {
+    if(error) {
+        return response.status(500).json({
+            message: error
+        })
+    }
+    return response;
 })
 
 app.listen(3000, () => {
