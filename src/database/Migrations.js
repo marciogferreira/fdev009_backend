@@ -7,7 +7,10 @@ import ClienteModel from "../models/ClienteModel.js";
 import PedidoModel from "../models/PedidoModel.js";
 import ItensPedidoModel from "../models/ItensPedidoModel.js";
 
-
+async function criarTabelas() {
+  // ⚠️ ATENÇÃO: force: true apaga e recria todas as tabelas!
+  await Conexao.sync({ force: true });
+}
 
 async function criarDadosIniciais() {
   try {
@@ -134,3 +137,5 @@ async function criarDadosIniciais() {
 }
 
 criarDadosIniciais();
+
+export default criarTabelas;

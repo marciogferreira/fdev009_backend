@@ -8,6 +8,10 @@ import ItensPedidoRoutes from './src/routes/ItensPedidoRoutes.js';
 import FornecedorRoutes from './src/routes/FornecedorRoutes.js';
 import ProdutoRoutes from './src/routes/ProdutoRoutes.js';
 import CategoriaRoutes from './src/routes/CategoriaRoutes.js';
+import criarTabelas from './src/database/Migrations.js';
+
+// Migration para Criação de Tabelas no Banco
+criarTabelas();
 
 const app = express();
 
