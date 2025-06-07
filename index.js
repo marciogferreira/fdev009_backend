@@ -9,8 +9,10 @@ import FornecedorRoutes from './src/routes/FornecedorRoutes.js';
 import ProdutoRoutes from './src/routes/ProdutoRoutes.js';
 import CategoriaRoutes from './src/routes/CategoriaRoutes.js';
 import criarTabelas from './src/database/Migrations.js';
-
-import 'dotenv/config'
+import AutorizacaoRoutes from './src/routes/AutorizacaoRoutes.js';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Migration para Criação de Tabelas no Banco
 // criarTabelas();
@@ -22,17 +24,23 @@ app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
 app.get('/', (request, response) => {
     response.send("Hello Express FDEV009 111c")
 })
+
+app.use(AutorizacaoRoutes)
+
 // MIDDLEWARE - INTERMEDIARIO
-app.use((req, res, next) => {
-    return res.send("Sem Autorização")
+app.use(async (req, res, next) => {
+    const token = req.headers.token;
+    try {
+        await jwt.verify(token, process.env.TOKEN_KEY);
+        next();
+    } catch(e) {
+        return res.json({
+            message: 'Sem autorização. ' + e
+        })
+    }
 })
 
-app.get('/autorizados', (req, res)  => {
-    return res.json({
-        nome: 'Dados',
-        preco: 15.99
-    })
-})
+
 app.use(CategoriaRoutes);
 app.use(ProdutoRoutes);
 app.use(FornecedorRoutes);
