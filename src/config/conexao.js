@@ -1,8 +1,9 @@
 import { Sequelize } from 'sequelize';
-import 'dotenv/config'
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Conexao = new Sequelize({
-    dialect: process.env.DRIVER || 'mysql',
+    dialect: process.env.DRIVER,
     host: process.env.HOST,
     port: process.env.PORT,
     username: process.env.USERNAME,

@@ -10,8 +10,10 @@ import ProdutoRoutes from './src/routes/ProdutoRoutes.js';
 import CategoriaRoutes from './src/routes/CategoriaRoutes.js';
 import criarTabelas from './src/database/Migrations.js';
 
+import 'dotenv/config'
+
 // Migration para Criação de Tabelas no Banco
-criarTabelas();
+// criarTabelas();
 
 const app = express();
 
@@ -20,7 +22,17 @@ app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
 app.get('/', (request, response) => {
     response.send("Hello Express FDEV009 111c")
 })
+// MIDDLEWARE - INTERMEDIARIO
+app.use((req, res, next) => {
+    return res.send("Sem Autorização")
+})
 
+app.get('/autorizados', (req, res)  => {
+    return res.json({
+        nome: 'Dados',
+        preco: 15.99
+    })
+})
 app.use(CategoriaRoutes);
 app.use(ProdutoRoutes);
 app.use(FornecedorRoutes);

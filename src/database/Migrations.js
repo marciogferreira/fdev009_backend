@@ -9,7 +9,7 @@ import ItensPedidoModel from "../models/ItensPedidoModel.js";
 
 async function criarTabelas() {
   // ⚠️ ATENÇÃO: force: true apaga e recria todas as tabelas!
-  await Conexao.sync({ force: true });
+  await Conexao.sync({ force: false });
 }
 
 async function criarDadosIniciais() {
@@ -136,6 +136,6 @@ async function criarDadosIniciais() {
   }
 }
 
-criarDadosIniciais();
+// criarDadosIniciais();
 
 export default criarTabelas;
