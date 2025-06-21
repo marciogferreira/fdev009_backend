@@ -7,8 +7,8 @@ const Conexao = new Sequelize({
     host: process.env.HOST,
     port: process.env.PORT,
     username: process.env.USERNAME_DB,
-    password: process.env.PASSWORD_DB || '123456',
-    database: process.env.DATABASE_DB || 'fdev009'
+    password: process.env.PASSWORD_DB,
+    database: process.env.DATABASE_DB
 })
 
 export default Conexao;
