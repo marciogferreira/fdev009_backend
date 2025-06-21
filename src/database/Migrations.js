@@ -92,13 +92,13 @@ async function criarDadosIniciais() {
       }
     ];
 
-    for (const produto of produtos) {
-      const existente = await ProdutoModel.findOne({ where: { nome: produto.nome } });
-      if (!existente) {
-        await ProdutoModel.create(produto);
-        console.log(`✅ Produto '${produto.nome}' inserido!`);
-      }
-    }
+    // for (const produto of produtos) {
+    //   const existente = await ProdutoModel.findOne({ where: { nome: produto.nome } });
+    //   if (!existente) {
+    //     await ProdutoModel.create(produto);
+    //     console.log(`✅ Produto '${produto.nome}' inserido!`);
+    //   }
+    // }
 
     // Usuários admin
     const usuarios = [

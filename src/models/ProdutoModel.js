@@ -41,13 +41,15 @@ const ProdutoModel = Conexao.define(
         categoria_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: CategoriaModel
+                model: CategoriaModel,
+                foreignKey: 'id'
             }
         },
         fornedor_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: FornecedorModel
+                model: FornecedorModel,
+                foreignKey: 'id'
             }
         }
     },
