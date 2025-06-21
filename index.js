@@ -3,7 +3,10 @@ import cors from 'cors'
 import dotenv from 'dotenv';
 import PublicRoutes from './src/routes/PublicRoutes.js';
 import PrivateRoutes from './src/routes/PrivateRoutes.js';
+import criarTabelas from './src/database/Migrations.js';
 dotenv.config();
+
+criarTabelas();
 
 const app = express();
 app.use(cors({ origin: '*', methods: '*' }))

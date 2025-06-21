@@ -136,6 +136,6 @@ async function criarDadosIniciais() {
   }
 }
 
-// criarDadosIniciais();
+criarDadosIniciais();
 
 export default criarTabelas;
