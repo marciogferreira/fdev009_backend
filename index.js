@@ -15,6 +15,11 @@ app.use(express.json()); // Liberando Passagem de Dados via Post e Put pelo Body
 app.get('/', (request, response) => response.send("Hello Express FDEV009"))
 app.use(PublicRoutes)
 app.use(PrivateRoutes)
+app.use((req, res, error) => {
+    return response.status(500).json({
+        message: error
+    })
+})
 
 const PORT =  process.env.PORT || 3000;
 
