@@ -13,6 +13,8 @@ app.get('/', (request, response) => response.send("Hello Express FDEV009"))
 app.use(PublicRoutes)
 app.use(PrivateRoutes)
 
-app.listen(3000, () => {
+const PORT =  process.env.PORT || 3000;
+
+app.listen(PORT, () => {
     console.log("Servidor executando...")
 })
