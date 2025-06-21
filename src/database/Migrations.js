@@ -7,16 +7,8 @@ import ClienteModel from "../models/ClienteModel.js";
 import PedidoModel from "../models/PedidoModel.js";
 import ItensPedidoModel from "../models/ItensPedidoModel.js";
 
-async function criarTabelas() {
-  // ⚠️ ATENÇÃO: force: true apaga e recria todas as tabelas!
-  await Conexao.sync({ force: false });
-}
-
 async function criarDadosIniciais() {
   try {
-    // ⚠️ ATENÇÃO: force: true apaga e recria todas as tabelas!
-    await Conexao.sync({ force: true });
-
     // Fornecedores
     const fornecedores = [
       { nome: 'Pixel' },
@@ -92,13 +84,13 @@ async function criarDadosIniciais() {
       }
     ];
 
-    // for (const produto of produtos) {
-    //   const existente = await ProdutoModel.findOne({ where: { nome: produto.nome } });
-    //   if (!existente) {
-    //     await ProdutoModel.create(produto);
-    //     console.log(`✅ Produto '${produto.nome}' inserido!`);
-    //   }
-    // }
+    for (const produto of produtos) {
+      const existente = await ProdutoModel.findOne({ where: { nome: produto.nome } });
+      if (!existente) {
+        await ProdutoModel.create(produto);
+        console.log(`✅ Produto '${produto.nome}' inserido!`);
+      }
+    }
 
     // Usuários admin
     const usuarios = [
@@ -136,6 +128,10 @@ async function criarDadosIniciais() {
   }
 }
 
-criarDadosIniciais();
+async function criarTabelas() {
+  // ⚠️ ATENÇÃO: force: true apaga e recria todas as tabelas!
+  await Conexao.sync({ force: false });
+  criarDadosIniciais()
+}
 
 export default criarTabelas;
