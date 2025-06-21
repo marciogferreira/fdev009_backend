@@ -5,7 +5,6 @@ import AutorizacaoRoutes from '../routes/AutorizacaoRoutes.js';
 
 const PublicRoutes = express.Router()
 
-PublicRoutes.use(AutorizacaoRoutes)
 PublicRoutes.get('/public/produtos', ProdutoController.findAll);
 PublicRoutes.get('/public/categorias', CategoriaController.findAll);
 

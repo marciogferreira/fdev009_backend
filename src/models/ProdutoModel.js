@@ -56,10 +56,14 @@ const ProdutoModel = Conexao.define(
     {
         tableName: 'produtos'
     }
-)
-CategoriaModel.hasMany(ProdutoModel);
-ProdutoModel.belongsTo(CategoriaModel, {
-  foreignKey: 'categoria_id',
-  as: 'categoria' // <-- esse "as" precisa ser igual ao usado no include
-});
+);
+
+
 export default ProdutoModel;
+
+
+// CategoriaModel.hasMany(ProdutoModel);
+// ProdutoModel.belongsTo(CategoriaModel, {
+//   foreignKey: 'categoria_id',
+//   as: 'categoria' // <-- esse "as" precisa ser igual ao usado no include
+// });

@@ -2,7 +2,7 @@ import ProdutoModel from "../models/ProdutoModel.js";
 
 const ProdutoController = {
     findAll: async (request, response) => {
-        const dados = await ProdutoModel.findAll()
+        const dados = await ProdutoModel.findAll({})
         return response.json(dados);
     },
     findByPk: async (request, response) => {

@@ -124,7 +124,7 @@ async function criarDadosIniciais() {
   } catch (e) {
     console.error("❌ Erro ao criar dados:", e);
   } finally {
-    await Conexao.close();
+    // await Conexao.close();
   }
 }
 
